@@ -1,0 +1,1235 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-wrap: wrap; /* Allows forms to wrap to the next line */
+    justify-content: center;
+    align-items: flex-start; /* Aligns items to the top for better multi-row layout */
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px; /* Add some padding around the group of forms */
+    background-color: #f0f2f5; /* Light grey background for the overall page */
+    gap: 40px; /* Space between the forms */
+}
+
+/* Base Form Container Styles (Common to all themes) */
+.form-container {
+    width: 320px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.form-header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-header .fas {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 45px; /* Adjust padding for icon */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Input group icons common styles */
+.input-group .fas {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+}
+
+.btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.signup-link a {
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.or-divider {
+    text-align: center;
+    margin: 30px 0;
+    position: relative;
+    font-size: 14px;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+}
+
+.or-divider::before {
+    left: 0;
+}
+
+.or-divider::after {
+    right: 0;
+}
+
+.social-login {
+    text-align: center;
+    font-size: 15px;
+}
+
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+}
+
+.social-icon.facebook {
+    background-color: #3b5998;
+}
+
+.social-icon.google {
+    background-color: #dd4b39;
+}
+
+.social-icon.twitter {
+    background-color: #55acee;
+}
+
+/* --- Light Mode Specific Styles --- */
+.light-mode {
+    background-color: #fff;
+    color: #333;
+}
+
+.light-mode .form-header .fas {
+    color: #666;
+}
+
+.light-mode .login-form h2 {
+    color: #333;
+}
+
+.light-mode .input-group input {
+    color: #333;
+    background-color: #f7f7f7;
+    border-color: #ddd;
+}
+
+.light-mode .input-group input:focus {
+    border-color: #8a2be2; /* Purple focus color */
+}
+
+.light-mode .input-group .fas {
+    color: #999;
+}
+
+.light-mode .btn.login-btn {
+    background: linear-gradient(to right, #8a2be2, #4b0082); /* Purple gradient */
+    color: white;
+}
+
+.light-mode .forgot-password,
+.light-mode .signup-link a {
+    color: #8a2be2; /* Same purple for links */
+}
+
+.light-mode .or-divider {
+    color: #aaa;
+}
+
+.light-mode .or-divider::before,
+.light-mode .or-divider::after {
+    background-color: #eee;
+}
+
+.light-mode .social-login {
+    color: #666;
+}
+
+
+/* --- Dark Mode (Original Purple) Specific Styles --- */
+.dark-mode {
+    background: linear-gradient(to bottom right, #4b0082, #8a2be2); /* Purple gradient background */
+    color: white;
+}
+
+.dark-mode .form-header .fas {
+    color: white;
+}
+
+.dark-mode .login-form h2 {
+    color: white;
+}
+
+.dark-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly transparent white for inputs */
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.dark-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
+}
+
+.dark-mode .input-group input:focus {
+    border-color: white;
+}
+
+.dark-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.dark-mode .btn.login-btn {
+    background: linear-gradient(to right, #8a2be2, #4b0082); /* Purple gradient */
+    color: white;
+}
+
+.dark-mode .forgot-password,
+.dark-mode .signup-link a {
+    color: #f0e6ff; /* Lighter purple for links in dark mode */
+}
+
+.dark-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.dark-mode .or-divider::before,
+.dark-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- Green Mode Specific Styles --- */
+.green-mode {
+    background: linear-gradient(to bottom right, #28a745, #218838); /* Green gradient background */
+    color: white;
+}
+
+.green-mode .form-header .fas {
+    color: white;
+}
+
+.green-mode .login-form h2 {
+    color: white;
+}
+
+.green-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.green-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.green-mode .input-group input:focus {
+    border-color: white;
+}
+
+.green-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.green-mode .btn.login-btn {
+    background: linear-gradient(to right, #28a745, #1e7e34); /* Darker green gradient for button */
+    color: white;
+}
+
+.green-mode .forgot-password,
+.green-mode .signup-link a {
+    color: #e6ffe6; /* Lighter green for links */
+}
+
+.green-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.green-mode .or-divider::before,
+.green-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.green-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- Red Mode Specific Styles --- */
+.red-mode {
+    background: linear-gradient(to bottom right, #dc3545, #c82333); /* Red gradient */
+    color: white;
+}
+
+.red-mode .form-header .fas {
+    color: white;
+}
+
+.red-mode .login-form h2 {
+    color: white;
+}
+
+.red-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.red-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.red-mode .input-group input:focus {
+    border-color: white;
+}
+
+.red-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.red-mode .btn.login-btn {
+    background: linear-gradient(to right, #c82333, #bd2130); /* Darker red gradient for button */
+    color: white;
+}
+
+.red-mode .forgot-password,
+.red-mode .signup-link a {
+    color: #ffcccc; /* Lighter red for links */
+}
+
+.red-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.red-mode .or-divider::before,
+.red-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.red-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- Yellow Mode Specific Styles --- */
+.yellow-mode {
+    background: linear-gradient(to bottom right, #ffc107, #e0a800); /* Yellow gradient */
+    color: #333; /* Darker text for better contrast on yellow */
+}
+
+.yellow-mode .form-header .fas {
+    color: #333;
+}
+
+.yellow-mode .login-form h2 {
+    color: #333;
+}
+
+.yellow-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.7); /* More opaque white for inputs */
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.yellow-mode .input-group input::placeholder {
+    color: rgba(51, 51, 51, 0.7);
+}
+
+.yellow-mode .input-group input:focus {
+    border-color: #333;
+}
+
+.yellow-mode .input-group .fas {
+    color: #666;
+}
+
+.yellow-mode .btn.login-btn {
+    background: linear-gradient(to right, #ffc107, #e0a800); /* Yellow gradient for button */
+    color: #333; /* Dark text on button */
+    border: 1px solid #e0a800;
+}
+
+.yellow-mode .forgot-password,
+.yellow-mode .signup-link a {
+    color: #8b6d0c; /* Darker yellow/brown for links */
+}
+
+.yellow-mode .or-divider {
+    color: rgba(51, 51, 51, 0.7);
+}
+
+.yellow-mode .or-divider::before,
+.yellow-mode .or-divider::after {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.yellow-mode .social-login {
+    color: #333;
+}
+
+
+/* --- Black Mode Specific Styles --- */
+.black-mode {
+    background: linear-gradient(to bottom right, #222222, #000000); /* Black gradient */
+    color: white;
+}
+
+.black-mode .form-header .fas {
+    color: white;
+}
+
+.black-mode .login-form h2 {
+    color: white;
+}
+
+.black-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.black-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.black-mode .input-group input:focus {
+    border-color: white;
+}
+
+.black-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.black-mode .btn.login-btn {
+    background: linear-gradient(to right, #444444, #222222); /* Darker grey/black gradient for button */
+    color: white;
+}
+
+.black-mode .forgot-password,
+.black-mode .signup-link a {
+    color: #cccccc; /* Lighter grey for links */
+}
+
+.black-mode .or-divider {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.black-mode .or-divider::before,
+.black-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.black-mode .social-login {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* --- Purple Shade Mode Specific Styles (Different from original dark-mode) --- */
+.purple-shade-mode {
+    background: linear-gradient(to bottom right, #6a0dad, #9932cc); /* Royal Purple gradient */
+    color: white;
+}
+
+.purple-shade-mode .form-header .fas {
+    color: white;
+}
+
+.purple-shade-mode .login-form h2 {
+    color: white;
+}
+
+.purple-shade-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: white;
+}
+
+.purple-shade-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.purple-shade-mode .input-group input:focus {
+    border-color: white;
+}
+
+.purple-shade-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.purple-shade-mode .btn.login-btn {
+    background: linear-gradient(to right, #8a2be2, #5f099c); /* Deeper purple for button */
+    color: white;
+}
+
+.purple-shade-mode .forgot-password,
+.purple-shade-mode .signup-link a {
+    color: #cc99ff; /* Lighter purple for links */
+}
+
+.purple-shade-mode .or-divider {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.purple-shade-mode .or-divider::before,
+.purple-shade-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.purple-shade-mode .social-login {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* --- Chocolate Mode Specific Styles --- */
+.chocolate-mode {
+    background: linear-gradient(to bottom right, #5c3b2e, #3a221b); /* Dark chocolate gradient */
+    color: white;
+}
+
+.chocolate-mode .form-header .fas {
+    color: white;
+}
+
+.chocolate-mode .login-form h2 {
+    color: white;
+}
+
+.chocolate-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.chocolate-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.chocolate-mode .input-group input:focus {
+    border-color: white;
+}
+
+.chocolate-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.chocolate-mode .btn.login-btn {
+    background: linear-gradient(to right, #7b5141, #5c3b2e); /* Lighter chocolate for button */
+    color: white;
+}
+
+.chocolate-mode .forgot-password,
+.chocolate-mode .signup-link a {
+    color: #f5deb3; /* Creamy color for links */
+}
+
+.chocolate-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.chocolate-mode .or-divider::before,
+.chocolate-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.chocolate-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- New Orange Mode Specific Styles --- */
+.orange-mode {
+    background: linear-gradient(to bottom right, #fd7e14, #e65c00); /* Orange gradient */
+    color: white;
+}
+
+.orange-mode .form-header .fas {
+    color: white;
+}
+
+.orange-mode .login-form h2 {
+    color: white;
+}
+
+.orange-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.orange-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.orange-mode .input-group input:focus {
+    border-color: white;
+}
+
+.orange-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.orange-mode .btn.login-btn {
+    background: linear-gradient(to right, #e65c00, #c84d00); /* Darker orange for button */
+    color: white;
+}
+
+.orange-mode .forgot-password,
+.orange-mode .signup-link a {
+    color: #ffdab3; /* Lighter orange for links */
+}
+
+.orange-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.orange-mode .or-divider::before,
+.orange-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.orange-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- New Pink Mode Specific Styles --- */
+.pink-mode {
+    background: linear-gradient(to bottom right, #e83e8c, #d6006e); /* Pink gradient */
+    color: white;
+}
+
+.pink-mode .form-header .fas {
+    color: white;
+}
+
+.pink-mode .login-form h2 {
+    color: white;
+}
+
+.pink-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.pink-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.pink-mode .input-group input:focus {
+    border-color: white;
+}
+
+.pink-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.pink-mode .btn.login-btn {
+    background: linear-gradient(to right, #d6006e, #bc005f); /* Darker pink for button */
+    color: white;
+}
+
+.pink-mode .forgot-password,
+.pink-mode .signup-link a {
+    color: #ffb3d9; /* Lighter pink for links */
+}
+
+.pink-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.pink-mode .or-divider::before,
+.pink-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.pink-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- New Brown Mode Specific Styles --- */
+.brown-mode {
+    background: linear-gradient(to bottom right, #8b4513, #65300d); /* Brown gradient */
+    color: white;
+}
+
+.brown-mode .form-header .fas {
+    color: white;
+}
+
+.brown-mode .login-form h2 {
+    color: white;
+}
+
+.brown-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.brown-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.brown-mode .input-group input:focus {
+    border-color: white;
+}
+
+.brown-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.brown-mode .btn.login-btn {
+    background: linear-gradient(to right, #65300d, #4d240a); /* Darker brown for button */
+    color: white;
+}
+
+.brown-mode .forgot-password,
+.brown-mode .signup-link a {
+    color: #ffd7b3; /* Lighter brown/orange for links */
+}
+
+.brown-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.brown-mode .or-divider::before,
+.brown-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.brown-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- New Gray Mode Specific Styles --- */
+.gray-mode {
+    background: linear-gradient(to bottom right, #6c757d, #495057); /* Gray gradient */
+    color: white;
+}
+
+.gray-mode .form-header .fas {
+    color: white;
+}
+
+.gray-mode .login-form h2 {
+    color: white;
+}
+
+.gray-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.gray-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.gray-mode .input-group input:focus {
+    border-color: white;
+}
+
+.gray-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.gray-mode .btn.login-btn {
+    background: linear-gradient(to right, #495057, #343a40); /* Darker gray for button */
+    color: white;
+}
+
+.gray-mode .forgot-password,
+.gray-mode .signup-link a {
+    color: #e0e0e0; /* Lighter gray for links */
+}
+
+.gray-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.gray-mode .or-divider::before,
+.gray-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.gray-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- New Beige Mode Specific Styles --- */
+.beige-mode {
+    background: linear-gradient(to bottom right, #f5f5dc, #e0e0c8); /* Beige gradient */
+    color: #333;
+}
+
+.beige-mode .form-header .fas {
+    color: #666;
+}
+
+.beige-mode .login-form h2 {
+    color: #333;
+}
+
+.beige-mode .input-group input {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-color: #ccc;
+    color: #333;
+}
+
+.beige-mode .input-group input::placeholder {
+    color: rgba(51, 51, 51, 0.7);
+}
+
+.beige-mode .input-group input:focus {
+    border-color: #8b4513; /* Brownish focus */
+}
+
+.beige-mode .input-group .fas {
+    color: #999;
+}
+
+.beige-mode .btn.login-btn {
+    background: linear-gradient(to right, #8b4513, #65300d); /* Brown button */
+    color: white;
+}
+
+.beige-mode .forgot-password,
+.beige-mode .signup-link a {
+    color: #a0522d; /* Sienna for links */
+}
+
+.beige-mode .or-divider {
+    color: #aaa;
+}
+
+.beige-mode .or-divider::before,
+.beige-mode .or-divider::after {
+    background-color: #eee;
+}
+
+.beige-mode .social-login {
+    color: #666;
+}
+
+
+/* --- New Maroon Mode Specific Styles --- */
+.maroon-mode {
+    background: linear-gradient(to bottom right, #800000, #730000); /* Maroon gradient */
+    color: white;
+}
+
+.maroon-mode .form-header .fas {
+    color: white;
+}
+
+.maroon-mode .login-form h2 {
+    color: white;
+}
+
+.maroon-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.maroon-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.maroon-mode .input-group input:focus {
+    border-color: white;
+}
+
+.maroon-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.maroon-mode .btn.login-btn {
+    background: linear-gradient(to right, #730000, #5c0000); /* Darker maroon for button */
+    color: white;
+}
+
+.maroon-mode .forgot-password,
+.maroon-mode .signup-link a {
+    color: #ffb3b3; /* Lighter red for links */
+}
+
+.maroon-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.maroon-mode .or-divider::before,
+.maroon-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.maroon-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- New Navy Mode Specific Styles --- */
+.navy-mode {
+    background: linear-gradient(to bottom right, #000080, #000066); /* Navy gradient */
+    color: white;
+}
+
+.navy-mode .form-header .fas {
+    color: white;
+}
+
+.navy-mode .login-form h2 {
+    color: white;
+}
+
+.navy-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.navy-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.navy-mode .input-group input:focus {
+    border-color: white;
+}
+
+.navy-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.navy-mode .btn.login-btn {
+    background: linear-gradient(to right, #000066, #00004d); /* Darker navy for button */
+    color: white;
+}
+
+.navy-mode .forgot-password,
+.navy-mode .signup-link a {
+    color: #b3b3ff; /* Lighter blue for links */
+}
+
+.navy-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.navy-mode .or-divider::before,
+.navy-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.navy-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- New Teal Mode Specific Styles --- */
+.teal-mode {
+    background: linear-gradient(to bottom right, #008080, #006666); /* Teal gradient */
+    color: white;
+}
+
+.teal-mode .form-header .fas {
+    color: white;
+}
+
+.teal-mode .login-form h2 {
+    color: white;
+}
+
+.teal-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.teal-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.teal-mode .input-group input:focus {
+    border-color: white;
+}
+
+.teal-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.teal-mode .btn.login-btn {
+    background: linear-gradient(to right, #006666, #004d4d); /* Darker teal for button */
+    color: white;
+}
+
+.teal-mode .forgot-password,
+.teal-mode .signup-link a {
+    color: #b3ffff; /* Lighter cyan for links */
+}
+
+.teal-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.teal-mode .or-divider::before,
+.teal-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.teal-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- New Turquoise Mode Specific Styles --- */
+.turquoise-mode {
+    background: linear-gradient(to bottom right, #40e0d0, #36c2b4); /* Turquoise gradient */
+    color: #333; /* Dark text for better contrast */
+}
+
+.turquoise-mode .form-header .fas {
+    color: #333;
+}
+
+.turquoise-mode .login-form h2 {
+    color: #333;
+}
+
+.turquoise-mode .input-group input {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-color: #ccc;
+    color: #333;
+}
+
+.turquoise-mode .input-group input::placeholder {
+    color: rgba(51, 51, 51, 0.7);
+}
+
+.turquoise-mode .input-group input:focus {
+    border-color: #20b2aa; /* Light Sea Green focus */
+}
+
+.turquoise-mode .input-group .fas {
+    color: #666;
+}
+
+.turquoise-mode .btn.login-btn {
+    background: linear-gradient(to right, #20b2aa, #1a8e86); /* Light Sea Green button */
+    color: white;
+}
+
+.turquoise-mode .forgot-password,
+.turquoise-mode .signup-link a {
+    color: #008080; /* Teal for links */
+}
+
+.turquoise-mode .or-divider {
+    color: #aaa;
+}
+
+.turquoise-mode .or-divider::before,
+.turquoise-mode .or-divider::after {
+    background-color: #eee;
+}
+
+.turquoise-mode .social-login {
+    color: #666;
+}
+
+
+/* --- New Magenta Mode Specific Styles --- */
+.magenta-mode {
+    background: linear-gradient(to bottom right, #ff00ff, #e600e6); /* Magenta gradient */
+    color: white;
+}
+
+.magenta-mode .form-header .fas {
+    color: white;
+}
+
+.magenta-mode .login-form h2 {
+    color: white;
+}
+
+.magenta-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.magenta-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.magenta-mode .input-group input:focus {
+    border-color: white;
+}
+
+.magenta-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.magenta-mode .btn.login-btn {
+    background: linear-gradient(to right, #e600e6, #cc00cc); /* Darker magenta for button */
+    color: white;
+}
+
+.magenta-mode .forgot-password,
+.magenta-mode .signup-link a {
+    color: #ffb3ff; /* Lighter magenta for links */
+}
+
+.magenta-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.magenta-mode .or-divider::before,
+.magenta-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.magenta-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* --- New Olive Mode Specific Styles --- */
+.olive-mode {
+    background: linear-gradient(to bottom right, #808000, #666600); /* Olive gradient */
+    color: white;
+}
+
+.olive-mode .form-header .fas {
+    color: white;
+}
+
+.olive-mode .login-form h2 {
+    color: white;
+}
+
+.olive-mode .input-group input {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.olive-mode .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.olive-mode .input-group input:focus {
+    border-color: white;
+}
+
+.olive-mode .input-group .fas {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.olive-mode .btn.login-btn {
+    background: linear-gradient(to right, #666600, #4d4d00); /* Darker olive for button */
+    color: white;
+}
+
+.olive-mode .forgot-password,
+.olive-mode .signup-link a {
+    color: #e6e6b3; /* Lighter olive/khaki for links */
+}
+
+.olive-mode .or-divider {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.olive-mode .or-divider::before,
+.olive-mode .or-divider::after {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.olive-mode .social-login {
+    color: rgba(255, 255, 255, 0.8);
+}
