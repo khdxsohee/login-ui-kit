@@ -67,5 +67,5 @@ Please ensure your code follows the existing style and is well-commented.
 
 ---
 
-**Made with ❤️ by [khdxsohee]**
+**Made with ❤️ by khdxsohee**
 
